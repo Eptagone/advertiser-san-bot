@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Castle.Core" />
+    <PackageReference Include="Telegram.BotAPI" />
+    <PackageReference Include="Telegram.BotAPI.Extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="**\*.restext" />
+  </ItemGroup>
+</Project>
