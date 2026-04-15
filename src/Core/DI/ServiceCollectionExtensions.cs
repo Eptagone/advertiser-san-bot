@@ -101,12 +101,9 @@ public static class ServiceCollectionExtensions
                 var attr = t.GetCustomAttribute<PriorityAttribute>();
                 return attr is null ? 0 : attr.Priority;
             });
-        Console.WriteLine(
-            $"Registered {commandHandlerTypes.Count()} {typeof(T).Name} handlers in assembly {Assembly.GetExecutingAssembly().FullName}."
-        );
         foreach (var type in commandHandlerTypes)
         {
-            services.TryAddScoped(typeof(T), type);
+            services.AddScoped(typeof(T), type);
         }
 
         return services;

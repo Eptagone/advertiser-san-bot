@@ -32,9 +32,9 @@ sealed class SetupWorker(IServiceProvider serviceProvider, IOptions<BotSettings>
         CancellationToken stoppingToken
     )
     {
-        var definitions = Assembly
-            .GetExecutingAssembly()
-            .GetTypes()
+        var definitions = AppDomain
+            .CurrentDomain.GetAssemblies()
+            .SelectMany(a => a.GetTypes())
             .Where(t => !t.IsAbstract && t.IsAssignableTo(typeof(ICommandHandler)))
             .Aggregate(
                 new List<SetMyCommandsArgs>(),
